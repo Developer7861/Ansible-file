@@ -1,0 +1,14 @@
+- hosts: 172.31.0.66
+  become: True
+  gather_facts: no
+  tasks:
+    - name: install apache on linux
+      yum:
+        name: httpd
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+    - name: install apache on ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_facts['os_family] == "Debian"

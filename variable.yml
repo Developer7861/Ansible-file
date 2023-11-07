@@ -1,0 +1,7 @@
+- hosts: localhost
+  vars_files:
+    - my-vars.yml
+  tasks:
+    - name: This is variable demo
+      debug:
+        msg: "Hi {{user_name}}, goodevening"

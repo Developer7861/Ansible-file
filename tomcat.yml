@@ -1,0 +1,10 @@
+---
+- name: tomcat deploy
+  hosts: web
+  serial: 5
+  gather_facts: true
+  tasks:
+    - name: deploy war file
+      copy:
+        src: target/chatbot.war
+        dest: /opt/tomcat9/webapps
